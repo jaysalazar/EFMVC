@@ -77,7 +77,7 @@ namespace EFWebApplication.Controllers
             }
 
             //SalesReason salesReason = db.SalesReasons.Find(id);
-            SalesReason salesReason = businessLogic.RetrieveSpecificRecord((int)id);
+             salesReason = businessLogic.RetrieveSpecificRecord((int)id);
 
             if (salesReason == null)
             {
@@ -115,7 +115,7 @@ namespace EFWebApplication.Controllers
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
 
-            SalesReason salesReason = businessLogic.RetrieveSpecificRecord(new SalesReason() { SalesReasonID = Convert.ToInt32(id) });
+             salesReason = businessLogic.RetrieveSpecificRecord((int)id);
 
             if (salesReason == null)
             {
