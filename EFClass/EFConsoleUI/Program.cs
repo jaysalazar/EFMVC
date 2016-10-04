@@ -9,7 +9,7 @@ namespace EFConsoleUI
     {
         static BusinessLogic businessLogic = new BusinessLogic();
         static SalesReason salesReason = new SalesReason();
-        //asasdasddasd
+
         static void Main(string[] args)
         {
             while (true)
@@ -96,7 +96,6 @@ namespace EFConsoleUI
             }
         }
 
-        //optimize code
         static void RetrieveRecords(int choice)
         {
             if (choice == 1)
@@ -109,7 +108,7 @@ namespace EFConsoleUI
                     DisplayMessage(4);
                     foreach (var item in salesReasonList)
                     {
-                        Console.WriteLine("{0} {1} {2}", item.SalesReasonID.ToString().PadLeft(2).PadRight(3), item.Name.PadRight(27), item.ReasonType);
+                        DisplayRetrieveRecords(item);
                     }
                 }
             }
@@ -121,13 +120,18 @@ namespace EFConsoleUI
                 if (salesReason != null)
                 {
                     DisplayMessage(4);
-                    Console.WriteLine("{0} {1} {2}", salesReason.SalesReasonID.ToString().PadLeft(2).PadRight(3), salesReason.Name.PadRight(27), salesReason.ReasonType);
+                    DisplayRetrieveRecords(salesReason);
                 }
                 else
                 {
                     DisplayMessage(8);
                 }
             }
+        }
+
+        static void DisplayRetrieveRecords(SalesReason salesReason)
+        {
+            Console.WriteLine("{0} {1} {2}", salesReason.SalesReasonID.ToString().PadLeft(2).PadRight(3), salesReason.Name.PadRight(27), salesReason.ReasonType);
         }
 
         static void AddRecord()
